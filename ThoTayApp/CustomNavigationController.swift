@@ -16,28 +16,12 @@ class CustomNavigationController: UINavigationController {
         self.navigationBar.tintColor = UIColor.black
         self.navigationBar.shadowImage  = UIImage()
         self.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "bg_topbar"), for: .default)
+        self.navigationBar.backIndicatorImage = UIImage(named: "btn_back")?.withRenderingMode(.alwaysOriginal)
+        self.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "btn_back").withRenderingMode(.alwaysOriginal)
         
-        self.navigationItem.setLeftBarButton(UIBarButtonItem.init(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: nil, action: nil), animated: false)
-        
-        self.navigationItem.setRightBarButton(UIBarButtonItem.init(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: nil, action: nil), animated: false)
-
-        // Do any additional setup after loading the view.
+   
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

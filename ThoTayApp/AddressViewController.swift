@@ -15,7 +15,6 @@ class AddressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))

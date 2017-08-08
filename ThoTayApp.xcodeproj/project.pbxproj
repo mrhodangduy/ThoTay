@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63F796C31F394BD30015C426 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796C21F394BD30015C426 /* HomeTableViewCell.swift */; };
+		63F796C51F394BE70015C426 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796C41F394BE70015C426 /* HomeCollectionViewCell.swift */; };
+		63F796C71F395B820015C426 /* CatgoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796C61F395B820015C426 /* CatgoriesCollectionViewCell.swift */; };
+		63F796C91F395B920015C426 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796C81F395B920015C426 /* CategoriesTableViewCell.swift */; };
+		63F796CB1F3971A80015C426 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796CA1F3971A80015C426 /* ProductCollectionViewCell.swift */; };
+		63F796CD1F39761B0015C426 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796CC1F39761B0015C426 /* ProductViewController.swift */; };
+		63F796CF1F3999970015C426 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796CE1F3999970015C426 /* DetailProductViewController.swift */; };
+		63F796D51F399DED0015C426 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796D41F399DED0015C426 /* RoundButton.swift */; };
+		63F796D71F39A2EF0015C426 /* SizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796D61F39A2EF0015C426 /* SizeCollectionViewCell.swift */; };
+		63F796D91F39A7FC0015C426 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796D81F39A7FC0015C426 /* ColorCollectionViewCell.swift */; };
+		63F796DB1F39AAC10015C426 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796DA1F39AAC10015C426 /* RoundLabel.swift */; };
+		63F796DD1F39C59A0015C426 /* productImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F796DC1F39C59A0015C426 /* productImageCollectionViewCell.swift */; };
 		DA4E9BE81F38DCED00C3C481 /* sliced in Resources */ = {isa = PBXBuildFile; fileRef = DA4E9BE71F38DCED00C3C481 /* sliced */; };
 		DA4FB8121F38CB430075E0E8 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FB8111F38CB430075E0E8 /* SWRevealViewController.m */; };
-		DA4FB8141F38CF9D0075E0E8 /* CustomViewOCntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FB8131F38CF9D0075E0E8 /* CustomViewOCntroller.swift */; };
 		DA4FB8161F38D3C10075E0E8 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FB8151F38D3C10075E0E8 /* AddressTableViewCell.swift */; };
 		DA4FB8181F38D4440075E0E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FB8171F38D4440075E0E8 /* Address.swift */; };
 		DAEDB1341F38A1C50096BE6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDB1331F38A1C50096BE6C /* AppDelegate.swift */; };
@@ -24,11 +35,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63F796C21F394BD30015C426 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		63F796C41F394BE70015C426 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		63F796C61F395B820015C426 /* CatgoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatgoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		63F796C81F395B920015C426 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		63F796CA1F3971A80015C426 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		63F796CC1F39761B0015C426 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		63F796CE1F3999970015C426 /* DetailProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
+		63F796D41F399DED0015C426 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		63F796D61F39A2EF0015C426 /* SizeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewCell.swift; sourceTree = "<group>"; };
+		63F796D81F39A7FC0015C426 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		63F796DA1F39AAC10015C426 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
+		63F796DC1F39C59A0015C426 /* productImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4E9BE71F38DCED00C3C481 /* sliced */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sliced; sourceTree = "<group>"; };
 		DA4FB80E1F38CB420075E0E8 /* ThoTayApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThoTayApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA4FB8101F38CB430075E0E8 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DA4FB8111F38CB430075E0E8 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		DA4FB8131F38CF9D0075E0E8 /* CustomViewOCntroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewOCntroller.swift; sourceTree = "<group>"; };
 		DA4FB8151F38D3C10075E0E8 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		DA4FB8171F38D4440075E0E8 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		DAEDB1301F38A1C50096BE6C /* ThoTayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThoTayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +77,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63F796D01F399CF70015C426 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				63F796D41F399DED0015C426 /* RoundButton.swift */,
+				63F796DA1F39AAC10015C426 /* RoundLabel.swift */,
+			);
+			name = Module;
+			sourceTree = "<group>";
+		};
+		63F796D11F399CFF0015C426 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				DA4FB8101F38CB430075E0E8 /* SWRevealViewController.h */,
+				DA4FB8111F38CB430075E0E8 /* SWRevealViewController.m */,
+				DA4FB80E1F38CB420075E0E8 /* ThoTayApp-Bridging-Header.h */,
+				DA4E9BE61F38DCD400C3C481 /* Font */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		DA4E9BE61F38DCD400C3C481 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +124,8 @@
 		DAEDB1321F38A1C50096BE6C /* ThoTayApp */ = {
 			isa = PBXGroup;
 			children = (
-				DA4E9BE61F38DCD400C3C481 /* Font */,
-				DA4FB8101F38CB430075E0E8 /* SWRevealViewController.h */,
-				DA4FB8111F38CB430075E0E8 /* SWRevealViewController.m */,
-				DA4FB80E1F38CB420075E0E8 /* ThoTayApp-Bridging-Header.h */,
+				63F796D11F399CFF0015C426 /* Support */,
+				63F796D01F399CF70015C426 /* Module */,
 				DAEDB1481F38A8CD0096BE6C /* View */,
 				DAEDB1471F38A7140096BE6C /* Controller */,
 				DAEDB1331F38A1C50096BE6C /* AppDelegate.swift */,
@@ -104,6 +144,8 @@
 				DAEDB14D1F38AB2A0096BE6C /* ChatViewController.swift */,
 				DAEDB14F1F38AB380096BE6C /* AddressViewController.swift */,
 				DAEDB1511F38AB460096BE6C /* CallViewController.swift */,
+				63F796CC1F39761B0015C426 /* ProductViewController.swift */,
+				63F796CE1F3999970015C426 /* DetailProductViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -111,10 +153,17 @@
 		DAEDB1481F38A8CD0096BE6C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63F796CA1F3971A80015C426 /* ProductCollectionViewCell.swift */,
 				DAEDB1491F38A8EF0096BE6C /* CustomNavigationController.swift */,
-				DA4FB8131F38CF9D0075E0E8 /* CustomViewOCntroller.swift */,
 				DA4FB8151F38D3C10075E0E8 /* AddressTableViewCell.swift */,
 				DA4FB8171F38D4440075E0E8 /* Address.swift */,
+				63F796C21F394BD30015C426 /* HomeTableViewCell.swift */,
+				63F796C41F394BE70015C426 /* HomeCollectionViewCell.swift */,
+				63F796C61F395B820015C426 /* CatgoriesCollectionViewCell.swift */,
+				63F796C81F395B920015C426 /* CategoriesTableViewCell.swift */,
+				63F796D61F39A2EF0015C426 /* SizeCollectionViewCell.swift */,
+				63F796D81F39A7FC0015C426 /* ColorCollectionViewCell.swift */,
+				63F796DC1F39C59A0015C426 /* productImageCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -151,6 +200,7 @@
 				TargetAttributes = {
 					DAEDB12F1F38A1C50096BE6C = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7CZRA7KNK3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -193,16 +243,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F796D51F399DED0015C426 /* RoundButton.swift in Sources */,
 				DA4FB8121F38CB430075E0E8 /* SWRevealViewController.m in Sources */,
 				DAEDB1521F38AB460096BE6C /* CallViewController.swift in Sources */,
+				63F796DB1F39AAC10015C426 /* RoundLabel.swift in Sources */,
 				DAEDB14A1F38A8EF0096BE6C /* CustomNavigationController.swift in Sources */,
 				DAEDB1341F38A1C50096BE6C /* AppDelegate.swift in Sources */,
 				DA4FB8181F38D4440075E0E8 /* Address.swift in Sources */,
+				63F796C91F395B920015C426 /* CategoriesTableViewCell.swift in Sources */,
+				63F796CD1F39761B0015C426 /* ProductViewController.swift in Sources */,
+				63F796C31F394BD30015C426 /* HomeTableViewCell.swift in Sources */,
+				63F796CB1F3971A80015C426 /* ProductCollectionViewCell.swift in Sources */,
 				DAEDB14E1F38AB2A0096BE6C /* ChatViewController.swift in Sources */,
+				63F796DD1F39C59A0015C426 /* productImageCollectionViewCell.swift in Sources */,
+				63F796C71F395B820015C426 /* CatgoriesCollectionViewCell.swift in Sources */,
+				63F796D91F39A7FC0015C426 /* ColorCollectionViewCell.swift in Sources */,
 				DAEDB1501F38AB380096BE6C /* AddressViewController.swift in Sources */,
 				DA4FB8161F38D3C10075E0E8 /* AddressTableViewCell.swift in Sources */,
+				63F796CF1F3999970015C426 /* DetailProductViewController.swift in Sources */,
+				63F796D71F39A2EF0015C426 /* SizeCollectionViewCell.swift in Sources */,
 				DAEDB14C1F38A9F10096BE6C /* HomeViewController.swift in Sources */,
-				DA4FB8141F38CF9D0075E0E8 /* CustomViewOCntroller.swift in Sources */,
+				63F796C51F394BE70015C426 /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +388,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7CZRA7KNK3;
 				INFOPLIST_FILE = ThoTayApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Paul.com.ThoTayApp;
@@ -343,6 +405,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7CZRA7KNK3;
 				INFOPLIST_FILE = ThoTayApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Paul.com.ThoTayApp;

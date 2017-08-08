@@ -21,3 +21,10 @@ struct AddressBranch {
     }
     
 }
+
+struct Product {
+    let image:UIImage
+    let name: String
+    let discountPrice:String
+    let orginalPrice:String
+}
