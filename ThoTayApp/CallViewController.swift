@@ -15,16 +15,19 @@ class CallViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(HomeViewController.test))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(CallViewController.gotoCart))
         self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
 
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func gotoCart () {
+        
+        let viewCart = storyboard?.instantiateViewController(withIdentifier: "cartID") as! CartViewController
+        
+        self.navigationController?.pushViewController(viewCart, animated: true)
+        self.navigationController?.modalTransitionStyle = .flipHorizontal
     }
     
 

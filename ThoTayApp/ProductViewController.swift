@@ -19,7 +19,7 @@ class ProductViewController: UIViewController {
         
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         productCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: -44, right: 0)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:HomeViewController(), action: #selector(HomeViewController.test))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:self, action: #selector(ProductViewController.gotoCart))
         
         let product = Product(image: #imageLiteral(resourceName: "ic_product"),name:"SẢN PHẨM THỜI TRANG DEMO 1",discountPrice: "150.000 đ", orginalPrice: "180.000 đ")
         
@@ -31,7 +31,15 @@ class ProductViewController: UIViewController {
         
         
 
-        // Do any additional setup after loading the view.
+      
+    }
+    
+    func gotoCart () {
+        
+        let viewCart = storyboard?.instantiateViewController(withIdentifier: "cartID") as! CartViewController
+        
+        self.navigationController?.pushViewController(viewCart, animated: true)
+        self.navigationController?.modalTransitionStyle = .flipHorizontal
     }
 }
 

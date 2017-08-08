@@ -11,13 +11,14 @@ import UIKit
 class CartViewController: UIViewController {
     
     var arrayProductInCart = [ProdcutInCart]()
-
+    
     @IBOutlet weak var cartTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(arrayProductInCart)
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:HomeViewController(), action: #selector(HomeViewController.test))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:self, action: nil)
         
         cartTableView.dataSource = self
         
@@ -29,13 +30,16 @@ class CartViewController: UIViewController {
         arrayProductInCart.append(item1)
         arrayProductInCart.append(item2)
         arrayProductInCart.append(item3)
-
+        
+        print(arrayProductInCart)
+        print("Hu hu hu")
+        
         
     }
-
+    
 }
 
-extension CartViewController: UITableViewDataSource
+extension CartViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayProductInCart.count
@@ -55,15 +59,27 @@ extension CartViewController: UITableViewDataSource
         
         return cell
     }
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let delete = UITableViewRowAction(style: .destructive, title: "") { (action, indexPath) in
+//            self.arrayProductInCart.remove(at: indexPath.row)
+//            self.cartTableView.reloadData()
+//        }
+//        
+//        delete.backgroundColor = #colorLiteral(red: 0.9445296526, green: 0.2091335058, blue: 0.5810018182, alpha: 1)
+//        
+//        return [delete]
+//        
+//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle == UITableViewCellEditingStyle.delete
+        if editingStyle == .delete
         {
             arrayProductInCart.remove(at: indexPath.row)
-            tableView.reloadData()
+            cartTableView.reloadData()
         }
     }
+    
     
     
 }

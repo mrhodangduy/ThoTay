@@ -18,7 +18,7 @@ class AddressViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(HomeViewController.test))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(AddressViewController.gotoCart))
         self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         
         
@@ -37,6 +37,15 @@ class AddressViewController: UIViewController {
         addressTableView.dataSource = self
         addressTableView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
     }
+    
+    func gotoCart () {
+        
+        let viewCart = storyboard?.instantiateViewController(withIdentifier: "cartID") as! CartViewController
+        
+        self.navigationController?.modalTransitionStyle = .coverVertical
+        self.navigationController?.pushViewController(viewCart, animated: true)
+    }
+    
 }
 
 extension AddressViewController: UITableViewDataSource

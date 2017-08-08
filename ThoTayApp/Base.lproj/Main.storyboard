@@ -554,7 +554,7 @@
         <!--Cart View Controller-->
         <scene sceneID="h4K-5v-fQc">
             <objects>
-                <viewController id="Yn7-6x-iE1" customClass="CartViewController" customModule="ThoTayApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cartID" id="Yn7-6x-iE1" customClass="CartViewController" customModule="ThoTayApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="608-nI-Bw9"/>
                         <viewControllerLayoutGuide type="bottom" id="nd8-ce-qoQ"/>

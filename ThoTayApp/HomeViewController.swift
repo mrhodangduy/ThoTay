@@ -6,6 +6,8 @@
 //  Copyright © 2017 Paul. All rights reserved.
 //
 
+/// http://www.iosinsight.com/uinavigationcontroller-inside-uitabbarcontroller-with-storyboard/
+
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -24,7 +26,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(HomeViewController.test))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(HomeViewController.gotoCart))
         self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         
         homeTableView.dataSource = self
@@ -35,9 +37,12 @@ class HomeViewController: UIViewController {
         
     }
     
-    func test () {
+    func gotoCart () {
         
-        print("Cart")
+        let viewCart = storyboard?.instantiateViewController(withIdentifier: "cartID") as! CartViewController
+        
+        self.navigationController?.pushViewController(viewCart, animated: true)
+        self.navigationController?.modalTransitionStyle = .flipHorizontal
     }
     
     override func didReceiveMemoryWarning() {
