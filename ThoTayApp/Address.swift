@@ -28,3 +28,18 @@ struct Product {
     let discountPrice:String
     let orginalPrice:String
 }
+
+struct ProdcutInCart {
+    
+    let image:UIImage
+    let nameItem: String
+    let discountPrice:String
+    let orginalPrice:String
+    let size: String
+    let color:String
+
+}
+
+
+
+

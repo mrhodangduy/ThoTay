@@ -17,6 +17,7 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var lblProductName: UILabel!
     @IBOutlet weak var lblDiscountPrice: UILabel!
     @IBOutlet weak var lblOrginalPrice: UILabel!
+    @IBOutlet weak var pageController: UIPageControl!
     
     let arraySize = ["S","M","L","XL","XXL"]
     let arrColor:[UIColor] = [#colorLiteral(red: 0.2811203003, green: 0.7406486273, blue: 0.3002577424, alpha: 1),#colorLiteral(red: 0.9267657995, green: 0.5720303655, blue: 0.02264489233, alpha: 1),#colorLiteral(red: 0.9086088538, green: 0.1588474512, blue: 0.3089841306, alpha: 1),#colorLiteral(red: 0.2562428415, green: 0.4528628588, blue: 0.9696893096, alpha: 1),#colorLiteral(red: 0.3263745308, green: 0.767450273, blue: 0.7863391042, alpha: 1)]
@@ -29,6 +30,9 @@ class DetailProductViewController: UIViewController {
     var productname = ""
     var discountPrice = ""
     var orginalPrice = ""
+    
+    
+    var thisWidth:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +52,13 @@ class DetailProductViewController: UIViewController {
         lblOrginalPrice.text = orginalPrice
         arrayProductImage.append(#imageLiteral(resourceName: "ic_detail"))
         arrayProductImage.append(image)
+        
+        
+        pageController.hidesForSinglePage = true
+        pageController.numberOfPages = arrayProductImage.count
+        pageController.currentPageIndicatorTintColor = #colorLiteral(red: 0.9445296526, green: 0.2091335058, blue: 0.5810018182, alpha: 1)
+        pageController.pageIndicatorTintColor = UIColor.white
+        thisWidth = CGFloat(self.view.frame.width)
         
         
         // Do any additional setup after loading the view.
@@ -117,12 +128,8 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
                 button.layer.cornerRadius = 16
                 button.layer.borderWidth = 0.7
                 button.layer.borderColor = arrColor[selectIndexColor].cgColor
-                
-                
+               
                 cell.addSubview(button)
-                
-                
-                
             }
             else
             {
@@ -165,5 +172,18 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         }
         
     }
-    
+   
 }
+
+extension DetailProductViewController: UIScrollViewDelegate
+{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageWidth: CGFloat  = prouctImageCollectionView.frame.size.width
+        let x = prouctImageCollectionView.contentOffset.x
+        let currentPage = Int(ceil(x/pageWidth))
+        pageController.currentPage = (currentPage)
+        print("Current page: \(Int(pageController.currentPage))")
+    }
+}
+
+

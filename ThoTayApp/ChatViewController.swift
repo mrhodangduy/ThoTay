@@ -17,9 +17,10 @@ class ChatViewController: UIViewController {
         // Config Navigation
         
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:HomeViewController(), action: #selector(HomeViewController.test))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:HomeViewController(), action: #selector(HomeViewController.test))
+        
         
         self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
 

@@ -14,7 +14,10 @@ class HomeViewController: UIViewController {
     
     let arrayImages:[UIImage] = [#imageLiteral(resourceName: "banner1"), #imageLiteral(resourceName: "banner2"),#imageLiteral(resourceName: "banner3")]
     let arrayCategories:[UIImage] = [UIImage](repeatElement(#imageLiteral(resourceName: "ic_category"), count: 10))
-
+    
+    
+    var contentHeight: CGFloat = 1000
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,8 @@ class HomeViewController: UIViewController {
         homeTableView.dataSource = self
         homeTableView.delegate = self
         homeTableView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
-        homeTableView.estimatedRowHeight = self.view.frame.width/2
-        homeTableView.rowHeight = UITableViewAutomaticDimension
+        
+        
         
     }
     
@@ -47,49 +50,63 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 1
-    
+        
+        return 2
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if indexPath.row == 0
-//        {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! HomeTableViewCell
-//            
-//            cell.bannerCollection.reloadData()
-//            cell.bannerCollection.delegate = self
-//            cell.bannerCollection.dataSource = self
-//            cell.pageController.numberOfPages = arrayImages.count
-//            cell.pageController.currentPage = indexPath.row
-//            
-//            cell.bannerCollection.tag = indexPath.row
-//            
-//            return cell
-//        }
-//        else
-//        {
+        let cellDefault = UITableViewCell()
+        
+        switch indexPath.row {
+            
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! HomeTableViewCell
+            
+            cell.bannerCollection.reloadData()
+            cell.bannerCollection.delegate = self
+            cell.bannerCollection.dataSource = self
+            cell.pageController.numberOfPages = arrayImages.count
+            
+            
+            
+            cell.bannerCollection.tag = indexPath.row
+            
+            return cell
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! CategoriesTableViewCell
+            cell.backgroundColor = UIColor.black
+            
             
             cell.categoriesCollectionView.reloadData()
             cell.categoriesCollectionView.dataSource = self
             cell.categoriesCollectionView.delegate = self
             
             cell.categoriesCollectionView.tag = indexPath.row
-        
+            
             return cell
-//        }
+            
+        default:
+            
+            return cellDefault
+        }
+        
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 1
+        if indexPath.row == 0
         {
-        return self.view.frame.size.width/2
+            return self.view.frame.size.width/2
         }
-        else
+        else if indexPath.row == 1
         {
-            return 600
+            return contentHeight
+            
+        } else
+        {
+            return 0
         }
     }
     
@@ -98,20 +115,50 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return arrayCategories.count
-        
+        let dataSource = collectionView.tag
+        if dataSource == 0
+        {
+            return arrayImages.count
+        }
+        else if dataSource == 1
+        {
+            return arrayCategories.count
+        }
+        else
+        {
+            return 0
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath) as! CatgoriesCollectionViewCell
+        let cellDefault = UICollectionViewCell()
         
-        cell.imageCategories.image = arrayCategories[indexPath.row]
-        cell.imageCategories.layer.cornerRadius = 8
-        cell.imageCategories.clipsToBounds = true
+        let dataSource = collectionView.tag
         
-        return cell
-        
+        if dataSource == 0
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bannerCell", for: indexPath) as! HomeCollectionViewCell
+            
+            cell.imageBanner.image = arrayImages[indexPath.row]
+            
+            return cell
+        }
+        else if dataSource == 1
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath) as! CatgoriesCollectionViewCell
+            
+            cell.imageCategories.image = arrayCategories[indexPath.row]
+            cell.imageCategories.layer.cornerRadius = 8
+            cell.imageCategories.clipsToBounds = true
+            
+            
+            return cell
+            
+        }
+        else
+        {
+            return cellDefault
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
