@@ -502,7 +502,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Yn7-6x-iE1" kind="show" id="sn5-x6-oWU"/>
+                                    <action selector="addItemToCart:" destination="Vwu-SW-y2v" eventType="touchUpInside" id="m44-vE-mDx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -544,6 +544,7 @@
                         <outlet property="pageController" destination="XWx-DN-o04" id="WtC-bp-497"/>
                         <outlet property="prouctImageCollectionView" destination="bf1-iU-568" id="boF-vt-W6D"/>
                         <outlet property="sizeCollectionView" destination="neL-7K-QzP" id="Plh-lH-acS"/>
+                        <segue destination="Yn7-6x-iE1" kind="show" id="icN-vi-fMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePu-Iq-9Fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,7 +608,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="158" id="GoR-uh-3kr" customClass="CartTableViewCell" customModule="ThoTayApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="158" id="GoR-uh-3kr" customClass="New_CartTableViewCell" customModule="ThoTayApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GoR-uh-3kr" id="Kwo-AB-Aed">
@@ -666,7 +667,7 @@
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="IncreaseQuanlityButton:" destination="GoR-uh-3kr" eventType="touchUpInside" id="n62-cQ-Gch"/>
+                                                        <action selector="IncreaseQuanlityButton:" destination="GoR-uh-3kr" eventType="touchUpInside" id="KhB-Nb-6lA"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUx-3c-yzu">
@@ -676,7 +677,7 @@
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="DeincreaseQuanlityButton:" destination="GoR-uh-3kr" eventType="touchUpInside" id="dvh-dB-BHh"/>
+                                                        <action selector="DeincreaseQuanlityButton:" destination="GoR-uh-3kr" eventType="touchUpInside" id="4IL-6G-5jH"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Màu: Red" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOi-gk-jKK">
@@ -730,13 +731,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageProduct" destination="MRm-29-QBp" id="Ao8-uq-JJK"/>
-                                            <outlet property="lblColor" destination="kOi-gk-jKK" id="Yrd-SJ-hYG"/>
-                                            <outlet property="lblDiscountPrice" destination="BCM-Sd-EzB" id="iIP-fC-nfO"/>
-                                            <outlet property="lblOriginalPrice" destination="TDA-Mi-T06" id="d9z-BE-LXa"/>
-                                            <outlet property="lblProductName" destination="8Wn-1p-80d" id="307-eD-7Re"/>
-                                            <outlet property="lblQuanlity" destination="P7n-PW-dJR" id="aIU-bb-7tY"/>
-                                            <outlet property="lblSize" destination="s3X-xP-I7K" id="gWg-IE-5W9"/>
+                                            <outlet property="imageProduct" destination="MRm-29-QBp" id="d6m-NG-xzH"/>
+                                            <outlet property="lblColor" destination="kOi-gk-jKK" id="eHw-FV-XDD"/>
+                                            <outlet property="lblDiscountPrice" destination="BCM-Sd-EzB" id="age-cj-rsy"/>
+                                            <outlet property="lblOriginalPrice" destination="TDA-Mi-T06" id="K7c-Y8-HyG"/>
+                                            <outlet property="lblProductName" destination="8Wn-1p-80d" id="ndJ-7X-aCn"/>
+                                            <outlet property="lblQuanlity" destination="P7n-PW-dJR" id="wrn-KO-l6Y"/>
+                                            <outlet property="lblSize" destination="s3X-xP-I7K" id="gx5-5N-6nQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -748,7 +749,7 @@
                             <constraint firstItem="Pzf-g2-Dyp" firstAttribute="leading" secondItem="AEV-Zj-OfY" secondAttribute="leading" id="STr-Jd-N48"/>
                             <constraint firstAttribute="trailing" secondItem="MZc-dE-MPB" secondAttribute="trailing" id="W5m-z1-c9g"/>
                             <constraint firstItem="MZc-dE-MPB" firstAttribute="top" secondItem="Pzf-g2-Dyp" secondAttribute="bottom" id="YUt-Z6-ZZM"/>
-                            <constraint firstItem="Pzf-g2-Dyp" firstAttribute="top" secondItem="608-nI-Bw9" secondAttribute="bottom" id="o9u-vJ-7fQ"/>
+                            <constraint firstItem="Pzf-g2-Dyp" firstAttribute="top" secondItem="608-nI-Bw9" secondAttribute="bottom" id="fjG-84-CRL"/>
                             <constraint firstAttribute="trailing" secondItem="Pzf-g2-Dyp" secondAttribute="trailing" id="vk4-NL-3kZ"/>
                             <constraint firstItem="MZc-dE-MPB" firstAttribute="leading" secondItem="AEV-Zj-OfY" secondAttribute="leading" id="yP3-w8-cPQ"/>
                         </constraints>
@@ -762,7 +763,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwG-ZY-9YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4552.8000000000002" y="-1121.2893553223389"/>
+            <point key="canvasLocation" x="4520.8000000000002" y="-1120.3898050974515"/>
         </scene>
         <!--Customer Info View Controller-->
         <scene sceneID="h1q-wi-r9u">
@@ -1053,7 +1054,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70z-47-gMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5284" y="-1121.2893553223389"/>
+            <point key="canvasLocation" x="5431" y="-1121"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="paH-dT-Ove">
@@ -1195,7 +1196,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="131 Nguyễn Ánh Thủ, Xã Trung Chánh, Huyện Hóc Môn, TP.HCM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve7-3l-wur">
-                                                    <rect key="frame" x="33" y="39.5" width="311" height="15"/>
+                                                    <rect key="frame" x="32.5" y="39.5" width="311" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="uQu-89-WTN"/>
                                                     </constraints>

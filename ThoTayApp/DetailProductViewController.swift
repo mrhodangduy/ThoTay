@@ -21,6 +21,7 @@ class DetailProductViewController: UIViewController {
     
     let arraySize = ["S","M","L","XL","XXL"]
     let arrColor:[UIColor] = [#colorLiteral(red: 0.2811203003, green: 0.7406486273, blue: 0.3002577424, alpha: 1),#colorLiteral(red: 0.9267657995, green: 0.5720303655, blue: 0.02264489233, alpha: 1),#colorLiteral(red: 0.9086088538, green: 0.1588474512, blue: 0.3089841306, alpha: 1),#colorLiteral(red: 0.2562428415, green: 0.4528628588, blue: 0.9696893096, alpha: 1),#colorLiteral(red: 0.3263745308, green: 0.767450273, blue: 0.7863391042, alpha: 1)]
+    let arrColorText:[String] = ["Green","Organe","Red","Blue","Cyan"]
     
     var selectIndexSize = 1
     var selectIndexColor = 2
@@ -72,6 +73,23 @@ class DetailProductViewController: UIViewController {
         self.navigationController?.modalTransitionStyle = .flipHorizontal
     }
     
+    @IBAction func addItemToCart(_ sender: UIButton) {
+        
+        let newImage:UIImage = image
+        let name = productname
+        let discount = discountPrice
+        let original = orginalPrice
+        let size = arraySize[selectIndexSize]
+        let color = arrColorText[selectIndexColor]
+        
+        let item = ProdcutInCart(image: newImage, nameItem: name, discountPrice: discount, orginalPrice: original, size: size, color: color)
+        
+        arrayProductInCart.append(item)
+        
+        print("Added to Cart")
+        
+        
+    }
     
 
     
