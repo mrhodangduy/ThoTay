@@ -121,6 +121,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let dataSource = collectionView.tag
+        
         if dataSource == 0
         {
             return arrayImages.count

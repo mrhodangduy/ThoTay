@@ -23,7 +23,7 @@ class DetailProductViewController: UIViewController {
     let arrColor:[UIColor] = [#colorLiteral(red: 0.2811203003, green: 0.7406486273, blue: 0.3002577424, alpha: 1),#colorLiteral(red: 0.9267657995, green: 0.5720303655, blue: 0.02264489233, alpha: 1),#colorLiteral(red: 0.9086088538, green: 0.1588474512, blue: 0.3089841306, alpha: 1),#colorLiteral(red: 0.2562428415, green: 0.4528628588, blue: 0.9696893096, alpha: 1),#colorLiteral(red: 0.3263745308, green: 0.767450273, blue: 0.7863391042, alpha: 1)]
     
     var selectIndexSize = 1
-    var selectIndexColor = 0
+    var selectIndexColor = 2
     
     var arrayProductImage = [UIImage]()
     var image = UIImage()
@@ -51,6 +51,7 @@ class DetailProductViewController: UIViewController {
         lblDiscountPrice.text = discountPrice
         lblOrginalPrice.text = orginalPrice
         arrayProductImage.append(#imageLiteral(resourceName: "ic_detail"))
+        arrayProductImage.append(#imageLiteral(resourceName: "ic_product1"))
         arrayProductImage.append(image)
         
         
@@ -61,8 +62,8 @@ class DetailProductViewController: UIViewController {
         thisWidth = CGFloat(self.view.frame.width)
         
         
-        // Do any additional setup after loading the view.
     }
+    
     func gotoCart () {
         
         let viewCart = storyboard?.instantiateViewController(withIdentifier: "cartID") as! CartViewController
@@ -72,9 +73,7 @@ class DetailProductViewController: UIViewController {
     }
     
     
-    @IBAction func btn_AddToCart(_ sender: Any) {
-        
-    }
+
     
 }
 

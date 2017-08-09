@@ -22,9 +22,11 @@ class ProductViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:self, action: #selector(ProductViewController.gotoCart))
         
         let product = Product(image: #imageLiteral(resourceName: "ic_product"),name:"SẢN PHẨM THỜI TRANG DEMO 1",discountPrice: "150.000 đ", orginalPrice: "180.000 đ")
+        let product2 = Product(image: #imageLiteral(resourceName: "ic_product1"),name:"SẢN PHẨM THỜI TRANG DEMO 2",discountPrice: "500.000 đ", orginalPrice: "750.000 đ")
         
+//        arrayProduct = [Product](repeating: product2, count: 4)
         
-        arrayProduct = [Product](repeating: product, count: 10)
+        arrayProduct = [product,product2,product2,product,product,product2,product2,product]
         
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
