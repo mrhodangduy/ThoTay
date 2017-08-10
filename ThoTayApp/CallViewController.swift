@@ -16,7 +16,7 @@ class CallViewController: UIViewController {
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(CallViewController.gotoCart))
-        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
 
 
         // Do any additional setup after loading the view.

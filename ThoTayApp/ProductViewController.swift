@@ -45,7 +45,7 @@ class ProductViewController: UIViewController {
     }
 }
 
-extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataSource
+extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayProduct.count
@@ -57,6 +57,10 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.lblProductName.text = arrayProduct[indexPath.row].name
         cell.lblDiscountPrice.text = arrayProduct[indexPath.row].discountPrice
         cell.lblOrginalPrice.text = arrayProduct[indexPath.row].orginalPrice
+        
+        cell.lblProductName.adjustsFontSizeToFitWidth = true
+        cell.lblOrginalPrice.adjustsFontSizeToFitWidth = true
+        cell.lblDiscountPrice.adjustsFontSizeToFitWidth = true
         
         
         return cell
@@ -74,6 +78,12 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         self.navigationController?.pushViewController(detailView, animated: true)
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.frame.size.width - 45) / 2 //some width
+        let height = (width * 1.5) + CGFloat(50)
+        return CGSize(width: width, height: height);
     }
 }
 

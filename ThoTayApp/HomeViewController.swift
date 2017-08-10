@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     
     let arrayImages:[UIImage] = [#imageLiteral(resourceName: "banner1"), #imageLiteral(resourceName: "banner2"),#imageLiteral(resourceName: "banner3")]
-    let arrayCategories:[UIImage] = [UIImage](repeatElement(#imageLiteral(resourceName: "ic_category"), count: 10))
+    var arrayCategories = [UIImage]()
+    let arrCategoriesName = ["Đầm Nữ","Jum & Set","Áo Nữ","Quần & Váy","Áo Khoác","Đồ Ngủ & Đồ Lót","Mỹ Phẩm & Trang Sức","Túi Xách & Phụ Kiện"]
     
     
     var contentHeight: CGFloat = 1000
@@ -23,16 +24,19 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        arrayCategories = [UIImage](repeatElement(#imageLiteral(resourceName: "ic_category"), count: arrCategoriesName.count))
+        
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(HomeViewController.gotoCart))
-        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
         
         homeTableView.dataSource = self
         homeTableView.delegate = self
         homeTableView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
-        
         
         
     }
@@ -80,8 +84,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! CategoriesTableViewCell
-            cell.backgroundColor = UIColor.black
-            
             
             cell.categoriesCollectionView.reloadData()
             cell.categoriesCollectionView.dataSource = self
@@ -114,12 +116,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
             return 0
         }
     }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
     
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         let dataSource = collectionView.tag
         
         if dataSource == 0
@@ -128,7 +134,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         else if dataSource == 1
         {
-            return arrayCategories.count
+            return arrCategoriesName.count
         }
         else
         {
@@ -157,6 +163,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.imageCategories.layer.cornerRadius = 8
             cell.imageCategories.clipsToBounds = true
             
+            cell.lblCategoriesName.text = arrCategoriesName[indexPath.row]
+            cell.lblCategoriesName.adjustsFontSizeToFitWidth = true
+            
             
             return cell
             
@@ -172,7 +181,31 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+extension HomeViewController: UICollectionViewDelegateFlowLayout
+{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let dataSource = collectionView.tag
+        
+        if dataSource == 0
+        {
+            
+            let width = self.view.frame.size.width     //some width
+            let height = width / 2
+            return CGSize(width: width, height: height)
+            
+        }
+        else if dataSource == 1
+        {
+            let width = (self.view.frame.size.width - 45) / 2 //some width
+            let height = width
+            return CGSize(width: width, height: height)
 
+        } else
+        {
+            return CGSize(width: 0, height: 0)
+        }
+    }
+}
 
 
 

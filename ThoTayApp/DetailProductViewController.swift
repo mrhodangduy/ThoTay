@@ -24,7 +24,7 @@ class DetailProductViewController: UIViewController {
     let arrColorText:[String] = ["Green","Organe","Red","Blue","Cyan"]
     
     var selectIndexSize = 1
-    var selectIndexColor = 2
+    var selectIndexColor:Int = 0
     
     var arrayProductImage = [UIImage]()
     var image = UIImage()
@@ -33,10 +33,11 @@ class DetailProductViewController: UIViewController {
     var orginalPrice = ""
     
     
-    var thisWidth:CGFloat = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectIndexColor = Int(arc4random_uniform(UInt32(arrColor.count)))
+        
         
         sizeCollectionView.delegate = self
         sizeCollectionView.dataSource = self
@@ -47,23 +48,30 @@ class DetailProductViewController: UIViewController {
         
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:self, action: #selector(DetailProductViewController.gotoCart))
-        
+
         lblProductName.text = productname
         lblDiscountPrice.text = discountPrice
         lblOrginalPrice.text = orginalPrice
         arrayProductImage.append(#imageLiteral(resourceName: "ic_detail"))
         arrayProductImage.append(#imageLiteral(resourceName: "ic_product1"))
-        arrayProductImage.append(image)
+        arrayProductImage.append(#imageLiteral(resourceName: "ic_product"))
+        arrayProductImage.insert(image, at: 0)
         
         
         pageController.hidesForSinglePage = true
         pageController.numberOfPages = arrayProductImage.count
         pageController.currentPageIndicatorTintColor = #colorLiteral(red: 0.9445296526, green: 0.2091335058, blue: 0.5810018182, alpha: 1)
         pageController.pageIndicatorTintColor = UIColor.white
-        thisWidth = CGFloat(self.view.frame.width)
+        pageController.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         
+        sizeCollectionView.reloadData()
+        colorCollectionView.reloadData()
+        prouctImageCollectionView.reloadData()
         
     }
+
+
+    
     
     func gotoCart () {
         
@@ -80,18 +88,14 @@ class DetailProductViewController: UIViewController {
         let discount = discountPrice
         let original = orginalPrice
         let size = arraySize[selectIndexSize]
-        let color = arrColorText[selectIndexColor]
+        let color = arrColorText[Int(selectIndexColor)]
         
         let item = ProdcutInCart(image: newImage, nameItem: name, discountPrice: discount, orginalPrice: original, size: size, color: color)
         
-        arrayProductInCart.append(item)
+        arrayProductInCart.insert(item, at: 0)
         
         print("Added to Cart")
-        
-        
     }
-    
-
     
 }
 
@@ -125,11 +129,16 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellsize", for: indexPath) as! SizeCollectionViewCell
             
             cell.lblSize.text = arraySize[indexPath.row]
+            cell.lblSize.layer.cornerRadius = cell.lblSize.frame.size.height / 2
+            cell.lblSize.clipsToBounds = true
+            cell.lblSize.layer.borderWidth = 0.7
+            cell.lblSize.layer.borderColor = UIColor.lightGray.cgColor
             
             if selectIndexSize == indexPath.row
             {
                 cell.lblSize.backgroundColor = #colorLiteral(red: 0.9445316792, green: 0.2186656296, blue: 0.6175296903, alpha: 1)
                 cell.lblSize.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                
             } else
             {
                 cell.lblSize.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -143,23 +152,18 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellcolor", for: indexPath) as! ColorCollectionViewCell
             
-            cell.lblColor.backgroundColor = arrColor[indexPath.row]
+            cell.imageColor.layer.cornerRadius = cell.imageColor.frame.size.height / 2
+            cell.imageColor.clipsToBounds = true
+            cell.imageColor.backgroundColor = arrColor[indexPath.row]
             
             if selectIndexColor == indexPath.row
             {
-                
-                let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-                button.layer.cornerRadius = 16
-                button.layer.borderWidth = 0.7
-                button.layer.borderColor = arrColor[selectIndexColor].cgColor
-               
-                cell.addSubview(button)
+                cell.imageColor.image = #imageLiteral(resourceName: "ticked")
             }
             else
             {
-                
+                cell.imageColor.image = UIImage()                
             }
-            
             
             return cell
             
@@ -190,13 +194,44 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         }
         else if collectionView == self.colorCollectionView
         {
+            
+            collectionView.deselectItem(at: indexPath, animated: true)
             selectIndexColor = indexPath.row
-            print(selectIndexColor)
+            print(arrColorText[Int(selectIndexColor)])
             self.colorCollectionView.reloadData()
+            
         }
         
     }
    
+}
+
+
+extension DetailProductViewController: UICollectionViewDelegateFlowLayout
+{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == self.colorCollectionView
+        {
+            let width = ((self.view.frame.size.width - CGFloat((arrColor.count - 1) * 20)) - 40) / CGFloat(arrColor.count) //some width
+            let height:CGFloat = width
+            return CGSize(width: width, height: height)
+        }
+        else if collectionView == self.sizeCollectionView
+        {
+            let width = ((self.view.frame.size.width - CGFloat((arrColor.count - 1) * 20)) - 40) / CGFloat(arraySize.count) //some width
+            let height:CGFloat = 30
+            return CGSize(width: width, height: height);
+        }
+        else
+        {
+            let height = self.prouctImageCollectionView.frame.size.height
+            let width =  self.prouctImageCollectionView.frame.size.width
+            return CGSize(width: width, height: height);
+        }
+        
+        
+    }
 }
 
 extension DetailProductViewController: UIScrollViewDelegate

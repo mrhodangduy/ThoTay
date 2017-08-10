@@ -19,7 +19,7 @@ class AddressViewController: UIViewController {
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(AddressViewController.gotoCart))
-        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
         
         
         let branch1 = AddressBranch(nameBranch: "THỎ TÂY 1:", address: "131 Nguyễn Ánh Thủ, Xã Trung Chánh, H.Hóc Môn, TP.HCM", service: "1900 0235 (24/7)")

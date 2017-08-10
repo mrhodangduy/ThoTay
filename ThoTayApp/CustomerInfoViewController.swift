@@ -71,7 +71,7 @@ class CustomerInfoViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0: return 44
+        case 0: return 50
         case 1: return 44
         case 2: return 44
         case 3: return 10

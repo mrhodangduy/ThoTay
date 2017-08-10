@@ -17,18 +17,26 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         
         menus = [
-            Menu(name: "SẢN PHẨM", items: ["Đầm Nữ","Jum & Set","Áo Nữ","Quần & Váy","Áo Khoác","Đồ Ngủ & Đồ Lót","Mũ Phẩm & Trang Sức","Túi Xách & Phụ Kiện"]),
+            Menu(name: "SẢN PHẨM", items: ["Đầm Nữ","Jum & Set","Áo Nữ","Quần & Váy","Áo Khoác","Đồ Ngủ & Đồ Lót","Mỹ Phẩm & Trang Sức","Túi Xách & Phụ Kiện"]),
             Menu(name: "GIỎ HÀNG", items: ["Thêm sản phẩm","Xem giỏ hàng"]),
             Menu(name: "HỆ THỐNG CỬA HÀNG", items: ["Chi nhánh", "Liên hệ"])
         ]
         
-        
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        
     }
     
+    func displayAlert ( _ title:String?,_ mess: String?)
+    {
+        let alert = UIAlertController(title: title, message: mess, preferredStyle: .alert)
+        let btn = UIAlertAction(title: "Close", style: .default, handler: nil)
+        
+        alert.addAction(btn)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+        
     func sectionTapped(_ sender:UIButton)
     {
         let section = sender.tag
@@ -88,7 +96,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 40))
+        let headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 50))
         let imageView = UIImageView.init(frame: CGRect(x: 15, y: 5, width: headerView.frame.height-10, height: headerView.frame.height-10))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
@@ -99,7 +107,6 @@ class MenuTableViewController: UITableViewController {
             switch section {
             case 0:
                 imageView.image = #imageLiteral(resourceName: "menu_sanpham2").withRenderingMode(.alwaysOriginal)
-                
             case 1:
                 imageView.image = #imageLiteral(resourceName: "menu_giohang2").withRenderingMode(.alwaysOriginal)
             default:
@@ -121,7 +128,7 @@ class MenuTableViewController: UITableViewController {
         
         let headerTitle = UILabel.init(frame: CGRect(x: 60, y: 0, width: headerView.frame.width/2, height: headerView.frame.height))
         headerTitle.text = menus[section].name
-        headerTitle.font = headerTitle.font.withSize(13)
+        headerTitle.font = UIFont(name: "SanFranciscoDisplay-Bold", size: 12.0)
         
         let tappedButton = UIButton.init(frame: CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: headerView.frame.size.height))
         tappedButton.addTarget(self, action: #selector(MenuTableViewController.sectionTapped(_:)), for: UIControlEvents.touchUpInside)
@@ -137,19 +144,11 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20
-    }
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 20))
-        footerView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "bg_topbar"))
-        
-        return footerView
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        displayAlert(nil, menus[indexPath.section].items[indexPath.row])
     }
     
 }
