@@ -11,5 +11,6 @@ import UIKit
 class ColorCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageColor: UIImageView!
+    @IBOutlet weak var imageRound: RoundImage!
     
 }

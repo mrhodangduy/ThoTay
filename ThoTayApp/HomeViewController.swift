@@ -36,8 +36,8 @@ class HomeViewController: UIViewController {
         
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        homeTableView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
-        
+        homeTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+
         
     }
     
@@ -58,6 +58,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource
 {
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 15.0
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
@@ -113,7 +120,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
             
         } else
         {
-            return 0
+            return 44
         }
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

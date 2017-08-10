@@ -41,6 +41,7 @@
 		DA4FB8181F38D4440075E0E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FB8171F38D4440075E0E8 /* Address.swift */; };
 		DA63FF961F3A200800D214DC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63FF951F3A200800D214DC /* CartViewController.swift */; };
 		DA63FF981F3A206800D214DC /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63FF971F3A206800D214DC /* CartTableViewCell.swift */; };
+		DAE081451F3CA33D00787942 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE081441F3CA33D00787942 /* RoundImage.swift */; };
 		DAEDB1341F38A1C50096BE6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDB1331F38A1C50096BE6C /* AppDelegate.swift */; };
 		DAEDB1391F38A1C50096BE6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEDB1371F38A1C50096BE6C /* Main.storyboard */; };
 		DAEDB14A1F38A8EF0096BE6C /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDB1491F38A8EF0096BE6C /* CustomNavigationController.swift */; };
@@ -88,6 +89,7 @@
 		DA4FB8171F38D4440075E0E8 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		DA63FF951F3A200800D214DC /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DA63FF971F3A206800D214DC /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		DAE081441F3CA33D00787942 /* RoundImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
 		DAEDB1301F38A1C50096BE6C /* ThoTayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThoTayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEDB1331F38A1C50096BE6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAEDB1381F38A1C50096BE6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				63DEE8001F3AC14F002E47F5 /* MenuSection.swift */,
 				63DEE8021F3AC542002E47F5 /* Extensions.swift */,
 				637070C51F3BFF8000513A8E /* UITableViewController.swift */,
+				DAE081441F3CA33D00787942 /* RoundImage.swift */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				63F796D91F39A7FC0015C426 /* ColorCollectionViewCell.swift in Sources */,
 				63DEE7FF1F3ABD53002E47F5 /* MenuTableViewController.swift in Sources */,
 				DAEDB1501F38AB380096BE6C /* AddressViewController.swift in Sources */,
+				DAE081451F3CA33D00787942 /* RoundImage.swift in Sources */,
 				DA4FB8161F38D3C10075E0E8 /* AddressTableViewCell.swift in Sources */,
 				63DF80221F3C3E3800085484 /* CollectionViewCell.swift in Sources */,
 				63F796CF1F3999970015C426 /* DetailProductViewController.swift in Sources */,

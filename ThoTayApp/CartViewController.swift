@@ -14,6 +14,7 @@ var arrayProductInCart = [ProdcutInCart]()
 class CartViewController: UIViewController {
     
     
+    @IBOutlet weak var lblTotalPrice: RoundLabel!
     @IBOutlet weak var cartTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -22,6 +23,7 @@ class CartViewController: UIViewController {
        
         cartTableView.dataSource = self
         cartTableView.delegate = self
+        lblTotalPrice.backgroundColor = #colorLiteral(red: 0.923984766, green: 0.1694104075, blue: 0.5483862758, alpha: 1)
                 
     }
     
@@ -64,6 +66,10 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(Int((((self.view.frame.size.width / 3) * 1.3) + CGFloat(20))))
     }
     
     
