@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomerInfoViewController: UITableViewController {
+    
+    var totalPrice:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +61,11 @@ class CustomerInfoViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell7", for: indexPath)
             return cell
         case 7:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell8", for: indexPath)
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell8", for: indexPath) as! TotalPriceTableViewCell
+            cell.lblTotalPrice.text = totalPrice
             return cell
+            
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell9", for: indexPath)
             return cell

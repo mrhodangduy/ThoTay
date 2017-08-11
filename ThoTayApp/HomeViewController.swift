@@ -10,6 +10,7 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeTableView: UITableView!
@@ -19,12 +20,27 @@ class HomeViewController: UIViewController {
     var arrayCategories = [UIImage]()
     let arrCategoriesName = ["Đầm Nữ","Jum & Set","Áo Nữ","Quần & Váy","Áo Khoác","Đồ Ngủ & Đồ Lót","Mỹ Phẩm & Trang Sức","Túi Xách & Phụ Kiện"]
     
-    
-    var contentHeight: CGFloat = 1000
+    var numberOfLine: Int = 0
+    var heightOfItem:CGFloat = 0
+    var totalHeightSpacingOfItem:CGFloat = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if arrCategoriesName.count % 2 != 0
+        {
+            numberOfLine = (arrCategoriesName.count / 2) + 1
+        }
+        else
+        {
+            numberOfLine = arrCategoriesName.count / 2
+        }
+        
+        heightOfItem = (self.view.frame.size.width - 45) / 2
+        totalHeightSpacingOfItem = CGFloat(((numberOfLine - 1) * 15) + 30)
+        
+        print(totalHeightSpacingOfItem + (CGFloat(numberOfLine) * heightOfItem))
         
         arrayCategories = [UIImage](repeatElement(#imageLiteral(resourceName: "ic_category"), count: arrCategoriesName.count))
         
@@ -79,11 +95,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
             cell.bannerCollection.dataSource = self
             cell.pageController.numberOfPages = arrayImages.count
             
-            
-            
             cell.bannerCollection.tag = indexPath.row
             
             return cell
+            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! CategoriesTableViewCell
             
@@ -110,15 +125,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
         }
         else if indexPath.row == 1
         {
+            let contentHeight:CGFloat = totalHeightSpacingOfItem + (CGFloat(numberOfLine) * heightOfItem)
+            
             return contentHeight
             
         } else
         {
             return 44
         }
-    }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
     }
     
 }

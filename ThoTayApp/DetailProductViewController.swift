@@ -29,8 +29,8 @@ class DetailProductViewController: UIViewController {
     var arrayProductImage = [UIImage]()
     var image = UIImage()
     var productname = ""
-    var discountPrice = ""
-    var orginalPrice = ""
+    var discountPrice:NSNumber = 0
+    var orginalPrice:NSNumber = 0
     
     
     override func viewDidLoad() {
@@ -49,9 +49,15 @@ class DetailProductViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:self, action: #selector(DetailProductViewController.gotoCart))
         
+        
         lblProductName.text = productname
-        lblDiscountPrice.text = discountPrice
-        lblOrginalPrice.text = orginalPrice
+        
+        let string = Convert()
+        let DiscountPrice = string.convertToCurrency(number: discountPrice)
+        let OrginalPrice = string.convertToCurrency(number: orginalPrice)
+        
+        lblDiscountPrice.text = DiscountPrice
+        lblOrginalPrice.text = OrginalPrice
         arrayProductImage.append(#imageLiteral(resourceName: "ic_detail"))
         arrayProductImage.append(#imageLiteral(resourceName: "ic_product1"))
         arrayProductImage.append(#imageLiteral(resourceName: "ic_product"))
@@ -65,9 +71,6 @@ class DetailProductViewController: UIViewController {
         pageController.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         
         
-        
-        
-        
     }
     
     func gotoCart () {
@@ -75,7 +78,6 @@ class DetailProductViewController: UIViewController {
         let viewCart = storyboard?.instantiateViewController(withIdentifier: "cartID") as! CartViewController
         
         self.navigationController?.pushViewController(viewCart, animated: true)
-        self.navigationController?.modalTransitionStyle = .flipHorizontal
     }
     
     @IBAction func addItemToCart(_ sender: UIButton) {
@@ -89,7 +91,20 @@ class DetailProductViewController: UIViewController {
         
         let item = ProdcutInCart(image: newImage, nameItem: name, discountPrice: discount, orginalPrice: original, size: size, color: color)
         
-        arrayProductInCart.insert(item, at: 0)
+        if arrayProductInCart.count == 0
+        {
+            arrayProductInCart.insert(item, at: 0)
+        }
+        else
+        {
+            var i = 0
+            while i < arrayProductInCart.count && item.nameItem == arrayProductInCart[i].nameItem && item.color == arrayProductInCart[i].color && item.size == arrayProductInCart[i].size {
+                arrayProductInCart[i].quanlity += 1
+                i += 1
+                
+            }
+            arrayProductInCart.insert(item, at: 0)
+        }
         
         print("Added to Cart")
     }
@@ -173,7 +188,7 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
             {
                 cell.imageColor.image = #imageLiteral(resourceName: "ticked")
                 cell.imageRound.alpha = 1
-
+                
             }
             else
             {

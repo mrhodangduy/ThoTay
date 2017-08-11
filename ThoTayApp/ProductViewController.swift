@@ -16,24 +16,20 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         productCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: -44, right: 0)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target:self, action: #selector(ProductViewController.gotoCart))
         
-        let product = Product(image: #imageLiteral(resourceName: "ic_product"),name:"SẢN PHẨM THỜI TRANG DEMO 1",discountPrice: "150.000 đ", orginalPrice: "180.000 đ")
-        let product2 = Product(image: #imageLiteral(resourceName: "ic_product1"),name:"SẢN PHẨM THỜI TRANG DEMO 2",discountPrice: "500.000 đ", orginalPrice: "750.000 đ")
+        let product = Product(image: #imageLiteral(resourceName: "ic_product"),name:"SẢN PHẨM THỜI TRANG DEMO 1",discountPrice: 150000, orginalPrice: 180000)
+        let product2 = Product(image: #imageLiteral(resourceName: "ic_product1"),name:"SẢN PHẨM THỜI TRANG DEMO 2",discountPrice: 350000, orginalPrice: 1050000)
+        let product3 = Product(image: #imageLiteral(resourceName: "ic_detail"),name:"SẢN PHẨM THỜI TRANG DEMO 3",discountPrice: 350000, orginalPrice: 550000)
         
-//        arrayProduct = [Product](repeating: product2, count: 4)
-        
-        arrayProduct = [product,product2,product2,product,product,product2,product2,product]
+        arrayProduct = [product,product2,product3,product,product2,product2,product3,product]
         
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
-        
-
-      
     }
     
     func gotoCart () {
@@ -53,15 +49,21 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCollectionViewCell
         
+        
+        
         cell.imageProduct.image = arrayProduct[indexPath.row].image
         cell.lblProductName.text = arrayProduct[indexPath.row].name
-        cell.lblDiscountPrice.text = arrayProduct[indexPath.row].discountPrice
-        cell.lblOrginalPrice.text = arrayProduct[indexPath.row].orginalPrice
+        
+        let string = Convert()
+        let DiscountPrice = string.convertToCurrency(number: arrayProduct[indexPath.row].discountPrice)
+        let OrginalPrice = string.convertToCurrency(number: arrayProduct[indexPath.row].discountPrice)
+        
+        cell.lblDiscountPrice.text = DiscountPrice
+        cell.lblOrginalPrice.text = OrginalPrice
         
         cell.lblProductName.adjustsFontSizeToFitWidth = true
         cell.lblOrginalPrice.adjustsFontSizeToFitWidth = true
         cell.lblDiscountPrice.adjustsFontSizeToFitWidth = true
-        
         
         return cell
     }
@@ -86,13 +88,4 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataS
         return CGSize(width: width, height: height);
     }
 }
-
-
-
-
-
-
-
-
-
 
