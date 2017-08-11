@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeTableView: UITableView!
     
+    @IBOutlet weak var tf_Search: UITextField!
     let arrayImages:[UIImage] = [#imageLiteral(resourceName: "banner1"), #imageLiteral(resourceName: "banner2"),#imageLiteral(resourceName: "banner3")]
     var arrayCategories = [UIImage]()
     let arrCategoriesName = ["Đầm Nữ","Jum & Set","Áo Nữ","Quần & Váy","Áo Khoác","Đồ Ngủ & Đồ Lót","Mỹ Phẩm & Trang Sức","Túi Xách & Phụ Kiện"]
@@ -30,15 +31,20 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ic_logo"))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_cart"), style: .plain, target: self, action: #selector(HomeViewController.gotoCart))
-//        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
         
         homeTableView.dataSource = self
         homeTableView.delegate = self
         homeTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
-
         
+        tf_Search.delegate = self
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func gotoCart () {
@@ -47,23 +53,12 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.pushViewController(viewCart, animated: true)
         self.navigationController?.modalTransitionStyle = .flipHorizontal
-    }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    }    
+
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource
 {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 15.0
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -106,7 +101,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
         }
         
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -185,6 +179,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
+        self.view.endEditing(true)
     }
 }
 
@@ -214,12 +209,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout
     }
 }
 
-
-
-
-
-
-
-
-
+extension HomeViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        tf_Search.resignFirstResponder()
+        return true
+        
+    }
+}
 
